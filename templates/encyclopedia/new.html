@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %} 
+
+{% block title %} Add New Page {% endblock %}
+
+{% block body %}
+{% if message %}
+{{message | safe}}
+{% endif %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <h1><label for="new">Add New Page</label></h1>
+      <input class="form-group" type="text" name="title" placeholder="Place Title Here">
+    </div>
+    <div class="form-group">
+        <textarea class="form-group" id="new" name="new" rows="10" cols="10" placeholder="Type Markdown Text Here"></textarea>
+    </div>
+    <input type="submit" value="Save New Page">
+  </form>
+{% endblock %}
